@@ -1,7 +1,14 @@
 object camion {
     var carga = []
 
-    method cargar(unaCosa){ carga.add(unaCosa)}
+    method cargar(unaCosa){ 
+        carga.add(unaCosa)
+        unaCosa.consecuenciaDeCarga()
+        }
+    method cargarvarias(unaLista){ 
+        carga.addAll(unaLista)
+        unaLista.forEach({c=>c.consecuenciaDeCarga()})
+        }        
     method descargar(unaCosa) {carga.remove(unaCosa)}
     method pesoCarga() = carga.sum({p=>p.peso()})
     method pesoTotal() = 1000 + self.pesoCarga()
